@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import pandas as pd
 import plotly.express as px
 from MLMODEL import GDPModel  
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -20,10 +21,12 @@ def graph():
 
         # Make prediction
         prediction = GDPModel().predict([total_indebtedness, investment_rate, jobs_creation, trade_deficit])
-
+        #get current year +1 
+        year = datetime.now().year + 1
         # Add the prediction to the CSV file or your data source
         data = pd.read_csv('dataset_cleaned_tn copy.csv')
-        new_row = {'GDP Current prices': prediction,
+        new_row = {'Year': '31/12/'+str(year),
+                    'GDP Current prices': prediction,
                    'Total indebtedness': total_indebtedness,
                    'Investment rate': investment_rate,
                    'Jobs creation': jobs_creation,
