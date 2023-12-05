@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask GDP Prediction</title>
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        label {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 20px;
+
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to GDP Prediction Platform for Tunisia </h1>
+    </br>
+    <form method="post" action="{{ url_for('graph') }}">
+        
+        <h2>Make a Prediction</h2>
+        <label for="total_indebtedness">Total Indebtedness:</label>
+        <input type="text" name="total_indebtedness" required>
+        <br>
+        <label for="investment_rate">Investment Rate:</label>
+        <input type="text" name="investment_rate" required>
+        <br>
+        <label for="jobs_creation">Jobs Creation:</label>
+        <input type="text" name="jobs_creation" required>
+        <br>
+        <label for="trade_deficit">Trade Deficit:</label>
+        <input type="text" name="trade_deficit" required>
+        <br>
+        <button type="submit">Predict GDP</button>
+    </form>
+
+
+    <a href="{{ url_for('graph') }}">Go to GDP Prediction Graph</a>
+</body>
+</html>
