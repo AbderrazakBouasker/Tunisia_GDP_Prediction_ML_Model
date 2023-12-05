@@ -35,7 +35,7 @@ def graph():
 
     # Read the data and create the graph
     data = pd.read_csv('dataset_cleaned_tn copy.csv')
-    fig = px.scatter(data, x='Total indebtedness', y='GDP Current prices', title='GDP Prediction Graph')
+    fig = px.scatter(data, x='Year', y='GDP Current prices', title='GDP Prediction Graph')
     graph_html = fig.to_html(full_html=False)
 
     return render_template('graph.html', graph_html=graph_html)
